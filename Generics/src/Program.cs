@@ -4,6 +4,14 @@ var studentStore = new Store<Student>();
 
 studentStore.Add(new Student { Id = 1, Name = "Ahmed" });
 studentStore.Add(new Student { Id = 2, Name = "Mona" });
+try
+{
+    studentStore.Add(new Student { Id = 1, Name = "Duplicate" });
+}
+catch (InvalidOperationException ex)
+{
+    Console.WriteLine(ex.Message);
+}
 
 var student = studentStore.GetById(1);
 
