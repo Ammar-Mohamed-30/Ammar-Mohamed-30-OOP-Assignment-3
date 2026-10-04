@@ -1,6 +1,6 @@
 namespace Generics;
 
-public class Store<T>
+public class Store<T> where T : IHasId
 {
     private readonly List<T> _items = new();
 
@@ -27,5 +27,13 @@ public class Store<T>
 
     public void Remove(int id)
     {
+        for (var i = 0; i < _items.Count; i++)
+        {
+            if (_items[i].Id == id)
+            {
+                _items.RemoveAt(i);
+                return;
+            }
+        }
     }
 }
