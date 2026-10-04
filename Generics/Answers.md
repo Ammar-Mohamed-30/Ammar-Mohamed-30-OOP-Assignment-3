@@ -1,14 +1,6 @@
-# Generics — Answers
+Step 3
 
-## Step 2
+Compiler error:
+'T' does not contain a definition for 'Id' and no accessible extension method 'Id' accepting a first argument of type 'T' could be found.
 
-### What is the same between StudentStore and CourseStore?
-
-Both stores keep a collection of objects in a List and provide the same four operations:
-Add, GetById, GetAll, and Remove.
-
-### What is different?
-
-StudentStore works with Student objects, while CourseStore works with Course objects.
-
-Student has Id and Name, while Course has Id, Title, and Price.
+The compiler rejects this because T can represent any type, and the compiler does not know that every type used with Store<T> has an Id property.
